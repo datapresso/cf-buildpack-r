@@ -76,6 +76,13 @@ S3_BUCKET="heroku-buildpack-r"
 R_BINARIES="https://s3.amazonaws.com/r-buildpack/R-3.1.0-binaries-20140629-2201.tar.gz"
 #R_BINARIES="http://yg-build.s3.amazonaws.com/R-heroku-3.0.2-20131105.0015.tar.gz"
 
+##Download Java
+JAVA_BINARIES=""
+export JAVA_HOME=/home/vcap/java-buildpack/open_jdk_jre
+export PATH=$PATH:/home/vcap/java-buildpack/open_jdk_jre/bin
+##
+
+
 VENDOR_DIR="$BUILD_DIR/vendor"
 R_HOME="$VENDOR_DIR/R"
 CRAN_MIRROR="http://cran.revolutionanalytics.com"
