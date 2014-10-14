@@ -71,20 +71,20 @@ GCC_VERSION="4.3"
 GLIBC_VERSION="2.7"
 R_VERSION="3.1.0"
 #R_VERSION="3.0.2"
+JAVA_VERSION="1.7.60"
 
 S3_BUCKET="heroku-buildpack-r"
 R_BINARIES="https://s3.amazonaws.com/r-buildpack/R-3.1.0-binaries-20140629-2201.tar.gz"
 #R_BINARIES="http://yg-build.s3.amazonaws.com/R-heroku-3.0.2-20131105.0015.tar.gz"
 
 ##Download Java
-JAVA_BINARIES=""
-export JAVA_HOME=/home/vcap/java-buildpack/open_jdk_jre
-export PATH=$PATH:/home/vcap/java-buildpack/open_jdk_jre/bin
+JAVA_BINARIES="http://www.java.net/download/jdk7u60/archive/b15/binaries/jdk-7u60-ea-bin-b15-linux-i586-16_apr_2014.tar.gz"
 ##
 
 
 VENDOR_DIR="$BUILD_DIR/vendor"
 R_HOME="$VENDOR_DIR/R"
+JAVA_HOME="$VENDOR_DIR/jdk1.7.0_60"
 CRAN_MIRROR="http://cran.revolutionanalytics.com"
 
 mkdir -p $CACHE_DIR
@@ -101,11 +101,23 @@ rm r_binaries.tar.gz
 
 echo "Directory created, R pulled, unpacked" | indent
 
+##download java
+echo "Downloading and unpacking Java binaries" | indent
+curl $JAVA_BINARIES -s -o java_binaries.tar.gz
+tar xzf java_binaries.tar.gz -C $VENDOR_DIR
+rm java_binaries.tar.gz
+
+
+echo "Directory created, Java pulled, unpacked" | indent
+
 # need to copy the binaries to /app/vendor so that R works
 cp -R $VENDOR_DIR/gcc-$GCC_VERSION /app/vendor/gcc-$GCC_VERSION
 cp -R $VENDOR_DIR/glibc-$GLIBC_VERSION /app/vendor/glibc-$GLIBC_VERSION
 #cp -R $VENDOR_DIR/readline /app/vendor/readline
 cp -R $VENDOR_DIR/R /app/vendor/R
+
+#copy java
+cp -R $VENDOR_DIR/jdk1.7.0_60 /app/vendor/java
 
 echo "Stuff copied" | indent
 
@@ -118,6 +130,10 @@ export R_HOME=/app/vendor/R
 export R_INCLUDE=$R_HOME/lib64/R/include
 export LD_LIBRARY_PATH="/lib:/usr/lib:$R_HOME/lib64:$LD_LIBRARY_PATH"
 ln -s /usr/lib/libreadline.so $R_HOME/lib64/libreadline.so.5 2>&1
+
+# Set Java variables
+export JAVA_HOME=/app/vendor/java
+export PATH=/app/vendor/java/bin:$PATH
 
 echo "variables set" | indent
 
