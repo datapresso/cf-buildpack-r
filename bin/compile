@@ -78,7 +78,7 @@ R_BINARIES="https://s3.amazonaws.com/r-buildpack/R-3.1.0-binaries-20140629-2201.
 #R_BINARIES="http://yg-build.s3.amazonaws.com/R-heroku-3.0.2-20131105.0015.tar.gz"
 
 ##Download Java
-JAVA_BINARIES="http://www.java.net/download/jdk7u60/archive/b15/binaries/jdk-7u60-ea-bin-b15-linux-i586-16_apr_2014.tar.gz"
+JAVA_BINARIES="https://www.java.net/download/jdk7u60/archive/b15/binaries/jdk-7u60-ea-bin-b15-linux-i586-16_apr_2014.tar.gz"
 ##
 
 
@@ -106,7 +106,6 @@ echo "Downloading and unpacking Java binaries" | indent
 curl $JAVA_BINARIES -s -o java_binaries.tar.gz
 tar xzf java_binaries.tar.gz -C $VENDOR_DIR
 rm java_binaries.tar.gz
-
 
 echo "Directory created, Java pulled, unpacked" | indent
 
