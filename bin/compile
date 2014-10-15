@@ -120,6 +120,9 @@ cp -R $VENDOR_DIR/jdk1.7.0_60 /app/vendor/java
 
 echo "Stuff copied" | indent
 
+# Set Java variables
+export JAVA_HOME=/app/vendor/java
+export PATH=/app/vendor/java/bin:$PATH
 
 # R needs to know where gfortran and glibc header files are
 export PATH=/app/vendor/R/bin:/app/vendor/gcc-$GCC_VERSION/bin:$PATH
@@ -127,12 +130,10 @@ export LDFLAGS="-L/app/vendor/gcc-$GCC_VERSION/lib64/"
 export CPPFLAGS="-I/app/vendor/glibc-$GLIBC_VERSION/string/ -I/app/vendor/glibc-$GLIBC_VERSION/time"
 export R_HOME=/app/vendor/R
 export R_INCLUDE=$R_HOME/lib64/R/include
-export LD_LIBRARY_PATH="/lib:/usr/lib:$R_HOME/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/lib:/usr/lib:$R_HOME/lib64:$JAVA_HOME/lib:$LD_LIBRARY_PATH"
 ln -s /usr/lib/libreadline.so $R_HOME/lib64/libreadline.so.5 2>&1
 
-# Set Java variables
-export JAVA_HOME=/app/vendor/java
-export PATH=/app/vendor/java/bin:$PATH
+
 
 echo "variables set" | indent
 
