@@ -78,13 +78,14 @@ R_BINARIES="https://s3.amazonaws.com/r-buildpack/R-3.1.0-binaries-20140629-2201.
 #R_BINARIES="http://yg-build.s3.amazonaws.com/R-heroku-3.0.2-20131105.0015.tar.gz"
 
 ##Download Java
-JAVA_BINARIES="http://download.java.net/jdk7u60/archive/b15/binaries/jdk-7u60-ea-bin-b15-linux-i586-16_apr_2014.tar.gz"
+#JAVA_BINARIES="http://download.java.net/jdk7u60/archive/b15/binaries/jdk-7u60-ea-bin-b15-linux-i586-16_apr_2014.tar.gz"
+JAVA_BINARIES="http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.tar.gz"
 ##
 
 
 VENDOR_DIR="$BUILD_DIR/vendor"
 R_HOME="$VENDOR_DIR/R"
-JAVA_HOME="$VENDOR_DIR/jdk1.7.0_60"
+JAVA_HOME="$VENDOR_DIR/jdk1.7.0_71"
 CRAN_MIRROR="http://cran.revolutionanalytics.com"
 
 mkdir -p $CACHE_DIR
@@ -171,7 +172,7 @@ rm -rf $VENDOR_DIR && mkdir -p $VENDOR_DIR
 cp -R /app/vendor/gcc-$GCC_VERSION $VENDOR_DIR/gcc-$GCC_VERSION
 cp -R /app/vendor/glibc-$GLIBC_VERSION $VENDOR_DIR/glibc-$GLIBC_VERSION
 cp -R /app/vendor/R $VENDOR_DIR/R
-cp -R /app/vendor/java $VENDOR_DIR/jdk1.7.0_60
+cp -R /app/vendor/java $VENDOR_DIR/jdk1.7.0_71
 
 # HACK
 cp $VENDOR_DIR/gcc-$GCC_VERSION/lib64/* $VENDOR_DIR/R/lib64/R/lib
