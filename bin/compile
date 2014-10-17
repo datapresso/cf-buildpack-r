@@ -71,7 +71,7 @@ GCC_VERSION="4.3"
 GLIBC_VERSION="2.7"
 R_VERSION="3.1.0"
 #R_VERSION="3.0.2"
-JAVA_VERSION="1.7.60"
+JAVA_VERSION="1.7.71"
 
 S3_BUCKET="heroku-buildpack-r"
 R_BINARIES="https://s3.amazonaws.com/r-buildpack/R-3.1.0-binaries-20140629-2201.tar.gz"
@@ -117,7 +117,7 @@ cp -R $VENDOR_DIR/glibc-$GLIBC_VERSION /app/vendor/glibc-$GLIBC_VERSION
 cp -R $VENDOR_DIR/R /app/vendor/R
 
 #copy java
-cp -R $VENDOR_DIR/jdk1.7.0_60 /app/vendor/java
+cp -R $VENDOR_DIR/jdk1.7.0_71 /app/vendor/java
 
 echo "Stuff copied" | indent
 
