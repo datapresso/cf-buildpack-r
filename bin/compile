@@ -127,13 +127,13 @@ cp -R $VENDOR_DIR/glibc-$GLIBC_VERSION /app/vendor/glibc-$GLIBC_VERSION
 cp -R $VENDOR_DIR/R /app/vendor/R
 
 #copy java
-cp -R $VENDOR_DIR/jdk1.7.0_71 /app/vendor/java
+cp -R $VENDOR_DIR/jdk1.7.0_71 /app/vendor/jdk1.7.0_71
 
 echo "Stuff copied" | indent
 
 # Set Java variables
-export JAVA_HOME=/app/vendor/java
-export PATH=/app/vendor/java/bin:$PATH
+export JAVA_HOME=/app/vendor/jdk1.7.0_71/jre
+export PATH=$JAVA_HOME/bin:$PATH
 
 # R needs to know where gfortran and glibc header files are
 export PATH=/app/vendor/R/bin:/app/vendor/gcc-$GCC_VERSION/bin:$PATH
@@ -141,7 +141,7 @@ export LDFLAGS="-L/app/vendor/gcc-$GCC_VERSION/lib64/"
 export CPPFLAGS="-I/app/vendor/glibc-$GLIBC_VERSION/string/ -I/app/vendor/glibc-$GLIBC_VERSION/time"
 export R_HOME=/app/vendor/R
 export R_INCLUDE=$R_HOME/lib64/R/include
-export LD_LIBRARY_PATH="/lib:/usr/lib:$R_HOME/lib64:$JAVA_HOME/lib:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/lib:/usr/lib:$R_HOME/lib64:$JAVA_HOME/lib/amd64:$JAVA_HOME/lib/amd64/server:$LD_LIBRARY_PATH"
 ln -s /usr/lib/libreadline.so $R_HOME/lib64/libreadline.so.5 2>&1
 
 
@@ -182,7 +182,7 @@ rm -rf $VENDOR_DIR && mkdir -p $VENDOR_DIR
 cp -R /app/vendor/gcc-$GCC_VERSION $VENDOR_DIR/gcc-$GCC_VERSION
 cp -R /app/vendor/glibc-$GLIBC_VERSION $VENDOR_DIR/glibc-$GLIBC_VERSION
 cp -R /app/vendor/R $VENDOR_DIR/R
-cp -R /app/vendor/java $VENDOR_DIR/jdk1.7.0_71
+cp -R /app/vendor/jdk1.7.0_71 $VENDOR_DIR/jdk1.7.0_71
 
 # HACK
 cp $VENDOR_DIR/gcc-$GCC_VERSION/lib64/* $VENDOR_DIR/R/lib64/R/lib
