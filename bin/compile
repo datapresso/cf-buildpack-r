@@ -180,7 +180,7 @@ echo "Java $JAVA_VERSION successfully installed" | indent
 
 # need to copy binaries back so that any installed packages are included in the slug
 ## 11/16/14 commented the following line to avoid removing other binaries from previous build pack in a multiple-build pack deployment scenario
-##rm -rf $VENDOR_DIR && mkdir -p $VENDOR_DIR
+rm -rf $VENDOR_DIR && mkdir -p $VENDOR_DIR
 cp -R /app/vendor/gcc-$GCC_VERSION $VENDOR_DIR/gcc-$GCC_VERSION
 cp -R /app/vendor/glibc-$GLIBC_VERSION $VENDOR_DIR/glibc-$GLIBC_VERSION
 cp -R /app/vendor/R $VENDOR_DIR/R
