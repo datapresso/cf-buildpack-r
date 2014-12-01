@@ -130,6 +130,11 @@ cp -R $VENDOR_DIR/R /app/vendor/R
 #copy java
 cp -R $VENDOR_DIR/jdk1.7.0_71 /app/vendor/jdk1.7.0_71
 
+#11/30/14 Need to copy libraries from the previous build pack to support multi-buildpack deployment
+#copy other libraries
+cp -R $VENDOR_DIR/gdal /app/vendor/gdal
+cp -R $VENDOR_DIR/proj /app/vendor/proj
+
 echo "Stuff copied" | indent
 
 # Set Java variables
@@ -186,7 +191,7 @@ echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 echo $PATH
 echo $VENDOR_DIR
 echo `ls -al $VENDOR_DIR`
-echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 rm -rf $VENDOR_DIR && mkdir -p $VENDOR_DIR
 cp -R /app/vendor/gcc-$GCC_VERSION $VENDOR_DIR/gcc-$GCC_VERSION
 cp -R /app/vendor/glibc-$GLIBC_VERSION $VENDOR_DIR/glibc-$GLIBC_VERSION
@@ -195,7 +200,6 @@ cp -R /app/vendor/jdk1.7.0_71 $VENDOR_DIR/jdk1.7.0_71
 cp -R /app/vendor $VENDOR_DIR
 echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 echo $PATH
-echo $VENDOR_DIR
 echo `ls -al /app/vendor`
 echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
