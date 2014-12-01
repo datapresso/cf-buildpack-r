@@ -88,6 +88,13 @@ R_HOME="$VENDOR_DIR/R"
 JAVA_HOME="$VENDOR_DIR/jdk1.7.0_71"
 CRAN_MIRROR="http://cran.revolutionanalytics.com"
 
+
+#11/30/14 Need to copy libraries from the previous build pack to support multi-buildpack deployment
+#copy other libraries
+cp -R /app/vendor/gdal /tmp/gdal
+cp -R $VENDOR_DIR/proj /tmp/proj
+
+
 mkdir -p $CACHE_DIR
 
 # vendor R into the slug
@@ -130,10 +137,6 @@ cp -R $VENDOR_DIR/R /app/vendor/R
 #copy java
 cp -R $VENDOR_DIR/jdk1.7.0_71 /app/vendor/jdk1.7.0_71
 
-#11/30/14 Need to copy libraries from the previous build pack to support multi-buildpack deployment
-#copy other libraries
-##cp -R $VENDOR_DIR/gdal /app/vendor/gdal
-##cp -R $VENDOR_DIR/proj /app/vendor/proj
 
 echo "Stuff copied" | indent
 
