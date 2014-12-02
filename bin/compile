@@ -91,6 +91,7 @@ CRAN_MIRROR="http://cran.revolutionanalytics.com"
 
 #11/30/14 Need to copy libraries from the previous build pack to support multi-buildpack deployment
 #copy other libraries
+mkdir -p /home/vcap/app/vendor/gdal && mkdir -p /home/vcap/app/vendor/proj
 cp -R /home/vcap/app/vendor/gdal /tmp/gdal
 cp -R /home/vcap/app/vendor/proj /tmp/proj
 echo $VENDOR_DIR
