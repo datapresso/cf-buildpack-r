@@ -95,6 +95,8 @@ mkdir -p /home/vcap/app/vendor/gdal && mkdir -p /home/vcap/app/vendor/proj
 cp -R /home/vcap/app/vendor/gdal /tmp/gdal
 cp -R /home/vcap/app/vendor/proj /tmp/proj
 echo $VENDOR_DIR
+echo $BUILD_DIR
+echo $BUILDPACK_DIR
 echo "***************************"
 
 mkdir -p $CACHE_DIR
@@ -162,6 +164,8 @@ echo "variables set" | indent
 # copy over environment
 mkdir -p $BUILD_DIR/.profile.d
 cp "$BUILDPACK_DIR/bin/r_environment.sh" $BUILD_DIR/.profile.d/r_environment.sh
+cp -R /home/vcap/app/vendor/gdal $BUILD_DIR/.profile.d/gdal
+cp -R /home/vcap/app/vendor/proj $BUILD_DIR/.profile.d/proj
 
 echo "environment copied" | indent
 
