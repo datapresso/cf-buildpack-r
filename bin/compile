@@ -94,7 +94,7 @@ function vendor() {
 
 echo "-----> Vendoring binaries"
 echo $VENDOR_DIR
-echo $PATH
+echo $path
 echo $CACHE_DIR
 #vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/gdal-1.11.1-1.tar.gz" "$BUILD_DIR/vendor/gdal"
 #vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/proj-4.8.0-1.tar.gz"  "$BUILD_DIR/vendor/proj"
@@ -169,7 +169,7 @@ CRAN_MIRROR="http://cran.revolutionanalytics.com"
 
 #11/30/14 Need to copy libraries from the previous build pack to support multi-buildpack deployment
 #copy other libraries
-#mkdir -p /app/vendor/gdal && mkdir -p /app/vendor/proj
+mkdir -p /app/vendor/gdal && mkdir -p /app/vendor/proj
 #cp -R /home/vcap/app/vendor/gdal $BUILD_DIR/.profile.d/gdal
 #cp -R /home/vcap/app/vendor/proj $BUILD_DIR/.profile.d/proj
 cp -R /app/vendor/gdal /var/tmp/gdal
