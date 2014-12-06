@@ -108,7 +108,7 @@ export PATH="/home/vcap/app/vendor/gdal/vendor/gdal/bin:$VENDOR_DIR/gdal/vendor/
 export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:$LD_LIBRARY_PATH:/home/vcap/app/vendor/gdal/vendor/gdal/lib:$VENDOR_DIR/gdal/vendor/gdal/lib"
 export LIBRARY_PATH="\$LIBRARY_PATH:$LIBRARY_PATH:/home/vcap/app/vendor/gdal/vendor/gdal/lib:$VENDOR_DIR/gdal/vendor/gdal/lib"
 export PKG_CONFIG_PATH="\$PKG_CONFIG_PATH:$PKG_CONFIG_PATH"
-export CPPPATH="\$CPPPATH:$CPPPATH"
+export CPPPATH="\$CPPPATH:$CPPPATH:/home/vcap/app/vendor/gdal/vendor/gdal/include:$VENDOR_DIR/gdal/vendor/gdal/include"
 export CPATH="\$CPATH:$CPATH"
 export GDAL_DATA="$BUILD_DIR/vendor/gdal/share/gdal:/home/vcap/app/vendor/gdal/vendor/gdal/share/gdal"
 EOF
@@ -121,7 +121,7 @@ export PATH="/home/vcap/app/vendor/gdal/vendor/gdal/bin:/tmp/staged/vendor/gdal/
 export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:$LD_LIBRARY_PATH:/home/vcap/app/vendor/gdal/vendor/gdal/lib"
 export LIBRARY_PATH="\$LIBRARY_PATH:$LIBRARY_PATH:/home/vcap/app/vendor/gdal/vendor/gdal/lib"
 export PKG_CONFIG_PATH="\$PKG_CONFIG_PATH:$PKG_CONFIG_PATH"
-export CPPPATH="\$CPPPATH:$CPPPATH"
+export CPPPATH="\$CPPPATH:$CPPPATH:/home/vcap/app/vendor/gdal/vendor/gdal/include:$VENDOR_DIR/gdal/vendor/gdal/include"
 export CPATH="\$CPATH:$CPATH"
 export GDAL_DATA="$BUILD_DIR/vendor/gdal/share/gdal:/home/vcap/app/vendor/gdal/vendor/gdal/share/gdal"
 EOF
@@ -131,8 +131,8 @@ export PATH="/home/vcap/app/vendor/gdal/vendor/gdal/bin:$VENDOR_DIR/gdal/vendor/
 export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH:$LD_LIBRARY_PATH:/home/vcap/app/vendor/gdal/vendor/gdal/lib:$VENDOR_DIR/gdal/vendor/gdal/lib"
 export LIBRARY_PATH="\$LIBRARY_PATH:$LIBRARY_PATH:/home/vcap/app/vendor/gdal/vendor/gdal/lib:$VENDOR_DIR/gdal/vendor/gdal/lib"
 export PKG_CONFIG_PATH="\$PKG_CONFIG_PATH:$PKG_CONFIG_PATH"
-export CPPPATH="\$CPPPATH:$CPPPATH"
-export CPATH="\$CPATH:$CPATH"
+export CPPPATH="\$CPPPATH:$CPPPATH:/home/vcap/app/vendor/gdal/vendor/gdal/include:$VENDOR_DIR/gdal/vendor/gdal/include"
+export CPATH="\$CPATH:$CPATH:/home/vcap/app/vendor/gdal/vendor/gdal/include:$VENDOR_DIR/gdal/vendor/gdal/include"
 export GDAL_DATA="$BUILD_DIR/vendor/gdal/share/gdal:/home/vcap/app/vendor/gdal/vendor/gdal/share/gdal"
 
 ############## R build pack start #######################
