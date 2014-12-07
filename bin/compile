@@ -149,6 +149,9 @@ echo $LP_DIR
 echo $BUILD_DIR
 echo $CACHE_DIR
 echo $BUILDPACK_DIR
+echo $PATH
+echo $LD_LIBRARY_PATH
+echo $CPATH
 echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # config
