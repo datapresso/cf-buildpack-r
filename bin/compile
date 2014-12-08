@@ -220,12 +220,6 @@ cp -R $VENDOR_DIR/glibc-$GLIBC_VERSION /app/vendor/glibc-$GLIBC_VERSION
 #cp -R $VENDOR_DIR/readline /app/vendor/readline
 cp -R $VENDOR_DIR/R /app/vendor/R
 
-######added on 12/4/14
-cp -R $VENDOR_DIR/gdal /app/vendor/gdal
-cp -R $VENDOR_DIR/proj /app/vendor/proj
-cp -R $VENDOR_DIR/geos /app/vendor/geos
-
-
 #copy java
 cp -R $VENDOR_DIR/jdk1.7.0_71 /app/vendor/jdk1.7.0_71
 
@@ -284,20 +278,25 @@ echo "Java $JAVA_VERSION successfully installed" | indent
 ## 11/16/14 commented the following line to avoid removing other binaries from previous build pack in a multiple-build pack deployment scenario
 ##mkdir -p /tmp/ding
 ##cp -R /app/vendor /tmp/ding/vendor
-#echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 echo $PATH
 echo $CACHE_DIR
 echo $VENDOR_DIR
 echo $BUILD_DIR
 echo `ls -al $VENDOR_DIR`
-echo `ls -al /app/vendor`
-#echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+echo `ls -al /app/vendor | sort`
+echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 rm -rf $VENDOR_DIR && mkdir -p $VENDOR_DIR
 cp -R /app/vendor/gcc-$GCC_VERSION $VENDOR_DIR/gcc-$GCC_VERSION
 cp -R /app/vendor/glibc-$GLIBC_VERSION $VENDOR_DIR/glibc-$GLIBC_VERSION
 cp -R /app/vendor/R $VENDOR_DIR/R
 cp -R /app/vendor/jdk1.7.0_71 $VENDOR_DIR/jdk1.7.0_71
 #cp -R /app/vendor $VENDOR_DIR
+######added on 12/4/14
+cp -R $VENDOR_DIR/gdal /app/vendor/gdal
+cp -R $VENDOR_DIR/proj /app/vendor/proj
+cp -R $VENDOR_DIR/geos /app/vendor/geos
 echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 echo $PATH
 echo `ls -al $CACHE_DIR`
