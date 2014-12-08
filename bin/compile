@@ -219,6 +219,10 @@ cp -R $VENDOR_DIR/gcc-$GCC_VERSION /app/vendor/gcc-$GCC_VERSION
 cp -R $VENDOR_DIR/glibc-$GLIBC_VERSION /app/vendor/glibc-$GLIBC_VERSION
 #cp -R $VENDOR_DIR/readline /app/vendor/readline
 cp -R $VENDOR_DIR/R /app/vendor/R
+######added on 12/4/14
+cp -R $VENDOR_DIR/gdal /app/vendor/gdal 
+cp -R $VENDOR_DIR/proj /app/vendor/proj  
+cp -R $VENDOR_DIR/geos /app/vendor/geos 
 
 #copy java
 cp -R $VENDOR_DIR/jdk1.7.0_71 /app/vendor/jdk1.7.0_71
@@ -294,9 +298,9 @@ cp -R /app/vendor/R $VENDOR_DIR/R
 cp -R /app/vendor/jdk1.7.0_71 $VENDOR_DIR/jdk1.7.0_71
 #cp -R /app/vendor $VENDOR_DIR
 ######added on 12/4/14
-cp -R $VENDOR_DIR/gdal /app/vendor/gdal
-cp -R $VENDOR_DIR/proj /app/vendor/proj
-cp -R $VENDOR_DIR/geos /app/vendor/geos
+cp -R /app/vendor/gdal $VENDOR_DIR/gdal 
+cp -R /app/vendor/proj $VENDOR_DIR/proj 
+cp -R /app/vendor/geos $VENDOR_DIR/geos 
 echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 echo $PATH
 echo `ls -al $CACHE_DIR`
