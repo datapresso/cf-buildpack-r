@@ -245,6 +245,16 @@ export R_INCLUDE=$R_HOME/lib64/R/include
 export LD_LIBRARY_PATH="/lib:/usr/lib:$R_HOME/lib64:$JAVA_HOME/lib/amd64:$JAVA_HOME/lib/amd64/server:$LD_LIBRARY_PATH"
 ln -s /usr/lib/libreadline.so $R_HOME/lib64/libreadline.so.5 2>&1
 
+## 12/09/14 C.Ding forced to add env variables from another build pack- hack
+export GEOS_LIBRARY_PATH=/app/vendor/geos/3.4.1/lib
+export GDAL_LIBRARY_PATH=/app/vendor/gdal/1.11.0/lib
+export PROJ4_LIBRARY_PATH=/app/vendor/proj/4.8.0/lib
+export GDAL_DATA=/app/vendor/gdal/1.11.0/share/gdal
+export PATH=/app/vendor/geos/3.4.1/bin:/app/vendor/gdal/1.11.0/bin:/app/vendor/proj/4.8.0/bin:$PATH
+export CPPPATH=$CPPPATH:/app/vendor/geos/3.4.1/include:/app/vendor/gdal/1.11.0/include:/app/vendor/proj/4.8.0/include
+export CPATH=$CPATH:/app/vendor/geos/3.4.1/include:/app/vendor/gdal/1.11.0/include:/app/vendor/proj/4.8.0/include
+export LIBRARY_PATH=$LIBRARY_PATH:/app/vendor/geos/3.4.1/lib:/app/vendor/gdal/1.11.0/lib:/app/vendor/proj/4.8.0/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/geos/3.4.1/lib:/app/vendor/gdal/1.11.0/lib:/app/vendor/proj/4.8.0/lib
 
 
 echo "variables set" | indent
