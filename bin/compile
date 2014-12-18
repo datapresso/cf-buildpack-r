@@ -99,7 +99,7 @@ echo $MYPATH
 echo "ppppppppppppppppppppppppppppppppppppppppppppppppppppp"
 #vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/gdal-1.11.1-1.tar.gz" "$BUILD_DIR/vendor/gdal"
 #vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/proj-4.8.0-1.tar.gz"  "$BUILD_DIR/vendor/proj"
-##vendor "http://forever.codeforamerica.org/heroku-pygeo/gdal-1.11.1-heroku.tar.gz" "$VENDOR_DIR/gdal"
+#vendor "http://forever.codeforamerica.org/heroku-pygeo/gdal-1.11.1-heroku.tar.gz" "$VENDOR_DIR/gdal"
 ##vendor "http://download.osgeo.org/proj/proj-4.8.0.tar.gz" "$VENDOR_DIR/proj"
 
 #echo "-----> Configuring build environment"
@@ -172,16 +172,13 @@ R_BINARIES="https://s3.amazonaws.com/r-buildpack/R-3.1.0-binaries-20140629-2201.
 ##Download Java
 #JAVA_BINARIES="http://download.java.net/jdk7u60/archive/b15/binaries/jdk-7u60-ea-bin-b15-linux-i586-16_apr_2014.tar.gz"
 JAVA_BINARIES="http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.tar.gz"
-##
+
 
 
 VENDOR_DIR="$BUILD_DIR/vendor"
 R_HOME="$VENDOR_DIR/R"
 JAVA_HOME="$VENDOR_DIR/jdk1.7.0_71"
 CRAN_MIRROR="http://cran.revolutionanalytics.com"
-
-
-
 
 mkdir -p $CACHE_DIR
 
@@ -200,16 +197,6 @@ echo "Directory created, R pulled, unpacked" | indent
 
 ##download java
 echo "Downloading and unpacking Java binaries" | indent
-#JDK7u71
-#BASE_URL=http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71
-#JDK_VERSION=${BASE_URL: -8}
-#declare -a PLATFORMS=("-windows-x64.exe" "-windows-i586.exe" "-linux-x64.tar.gz" "-linux-i586.tar.gz" "-docs-all.zip")
-# 
-#for platform in "${PLATFORMS[@]}"
-#do
-#    wget -c -O "$JDK_VERSION$platform" --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "${BASE_URL}${platform}"
-#done
-#curl $JAVA_BINARIES -s -o java_binaries.tar.gz
 wget -c -O java_binaries.tar.gz --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "$JAVA_BINARIES"
 tar xzf java_binaries.tar.gz -C $VENDOR_DIR
 rm java_binaries.tar.gz
@@ -250,7 +237,7 @@ export GEOS_LIBRARY_PATH=/app/vendor/geos/3.4.1/lib
 export GDAL_LIBRARY_PATH=/app/vendor/gdal/1.11.0/lib
 export PROJ4_LIBRARY_PATH=/app/vendor/proj/4.8.0/lib
 export GDAL_DATA=/app/vendor/gdal/1.11.0/share/gdal
-export PATH=/usr/bin:/usr/local/bin:/usr/sbin:/usr/local/sbin:/app/vendor/geos/3.4.1/bin:/app/vendor/gdal/1.11.0/bin:/app/vendor/proj/4.8.0/bin:$PATH
+export PATH=/usr/bin:/usr/local/bin:/usr/sbin:/usr/local/sbin:$BUILD_DIR/.profile.d:/app/vendor/geos/3.4.1/bin:/app/vendor/gdal/1.11.0/bin:/app/vendor/proj/4.8.0/bin:$PATH
 export CPPPATH=$CPPPATH:/app/vendor/geos/3.4.1/include:/app/vendor/gdal/1.11.0/include:/app/vendor/proj/4.8.0/include
 export CPATH=$CPATH:/app/vendor/geos/3.4.1/include:/app/vendor/gdal/1.11.0/include:/app/vendor/proj/4.8.0/include
 export LIBRARY_PATH=$LIBRARY_PATH:/app/vendor/geos/3.4.1/lib:/app/vendor/gdal/1.11.0/lib:/app/vendor/proj/4.8.0/lib
@@ -262,8 +249,6 @@ echo "variables set" | indent
 # copy over environment
 mkdir -p $BUILD_DIR/.profile.d
 cp "$BUILDPACK_DIR/bin/r_environment.sh" $BUILD_DIR/.profile.d/r_environment.sh
-#cp -R /home/vcap/app/vendor/gdal $BUILD_DIR/.profile.d/gdal
-#cp -R /home/vcap/app/vendor/proj $BUILD_DIR/.profile.d/proj
 
 echo "environment copied" | indent
 
