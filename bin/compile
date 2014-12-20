@@ -234,9 +234,7 @@ ln -s /usr/lib/libreadline.so $R_HOME/lib64/libreadline.so.5 2>&1
 
 ## 12/09/14 C.Ding forced to add env variables from another build pack- hack
 export GEOS_LIBRARY_PATH=/app/vendor/geos/3.4.1/lib
-export GDAL_LIBRARY_PATH=/app/vendor/gdal/1.11.0/lib
-export PROJ4_LIBRARY_PATH=/app/vendor/proj/4.8.0/lib
-export PROJ_LIB=/home/vcap/app/vendor/proj/4.8.0/share/proj
+#export PROJ_LIB=/home/vcap/app/vendor/proj/4.8.0/share/proj
 export GDAL_DATA=/app/vendor/gdal/1.11.0/share/gdal
 export PATH=$BUILD_DIR/.profile.d:/app/vendor/geos/3.4.1/bin:/app/vendor/gdal/1.11.0/bin:/app/vendor/proj/4.8.0/bin:$PATH
 export CPPPATH=$CPPPATH:/app/vendor/geos/3.4.1/include:/app/vendor/gdal/1.11.0/include:/app/vendor/proj/4.8.0/include
@@ -244,6 +242,8 @@ export CPATH=$CPATH:/app/vendor/geos/3.4.1/include:/app/vendor/gdal/1.11.0/inclu
 export LIBRARY_PATH=$LIBRARY_PATH:/app/vendor/geos/3.4.1/lib:/app/vendor/gdal/1.11.0/lib:/app/vendor/proj/4.8.0/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/geos/3.4.1/lib:/app/vendor/gdal/1.11.0/lib:/app/vendor/proj/4.8.0/lib
 
+# 12/20/14 C.Ding changed permission 
+chmod 777 /app/vendor/proj/4.8.0/share/proj
 
 echo "variables set" | indent
 
@@ -287,7 +287,7 @@ echo $VENDOR_DIR
 echo $BUILD_DIR
 echo `ls -al $VENDOR_DIR`
 echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-echo `ls /app/vendor/proj/4.8.0/share/proj | sort`
+echo `ls -al /app/vendor/proj/4.8.0/share/proj | sort`
 echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 rm -rf $VENDOR_DIR && mkdir -p $VENDOR_DIR
 cp -R /app/vendor/gcc-$GCC_VERSION $VENDOR_DIR/gcc-$GCC_VERSION
