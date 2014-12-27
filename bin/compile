@@ -147,9 +147,9 @@ LP_DIR=`cd $(dirname $0); cd ..; pwd`
 BUILDPACK_DIR="$(dirname $(dirname $0))"
 
 echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-echo $LP_DIR
-echo $BUILD_DIR
 echo $CACHE_DIR
+echo $BUILD_DIR
+echo $LP_DIR
 echo $BUILDPACK_DIR
 echo $PATH
 echo $LD_LIBRARY_PATH
@@ -239,17 +239,17 @@ export LD_LIBRARY_PATH="/lib:/usr/lib:$R_HOME/lib64:$JAVA_HOME/lib/amd64:$JAVA_H
 ln -s /usr/lib/libreadline.so $R_HOME/lib64/libreadline.so.5 2>&1
 
 ## 12/09/14 C.Ding forced to add env variables from another build pack- hack
-export GEOS_LIBRARY_PATH=/app/vendor/geos/3.4.1/lib
-export PROJ_LIB=/app/vendor/proj/4.8.0/share/proj
-export GDAL_DATA=/app/vendor/gdal/1.11.0/share/gdal
-export PATH=$BUILD_DIR/.profile.d:/app/vendor/geos/3.4.1/bin:/app/vendor/gdal/1.11.0/bin:/app/vendor/proj/4.8.0/bin:$PATH
-export CPPPATH=$CPPPATH:/app/vendor/geos/3.4.1/include:/app/vendor/gdal/1.11.0/include:/app/vendor/proj/4.8.0/include
-export CPATH=$CPATH:/app/vendor/geos/3.4.1/include:/app/vendor/gdal/1.11.0/include:/app/vendor/proj/4.8.0/include
-export LIBRARY_PATH=$LIBRARY_PATH:/app/vendor/geos/3.4.1/lib:/app/vendor/gdal/1.11.0/lib:/app/vendor/proj/4.8.0/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/geos/3.4.1/lib:/app/vendor/gdal/1.11.0/lib:/app/vendor/proj/4.8.0/lib
+export GEOS_LIBRARY_PATH=/app/vendor/geos/lib
+export PROJ_LIB=/app/vendor/proj/share/proj
+export GDAL_DATA=/app/vendor/gdal/share/gdal
+export PATH=$BUILD_DIR/.profile.d:/app/vendor/geos/bin:/app/vendor/gdal/bin:/app/vendor/proj/bin:$PATH
+export CPPPATH=$CPPPATH:/app/vendor/geos/include:/app/vendor/gdal/include:/app/vendor/proj/include
+export CPATH=$CPATH:/app/vendor/geos/include:/app/vendor/gdal/include:/app/vendor/proj/include
+export LIBRARY_PATH=$LIBRARY_PATH:/app/vendor/geos/lib:/app/vendor/gdal/lib:/app/vendor/proj/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/geos/lib:/app/vendor/gdal/lib:/app/vendor/proj/lib
 
 # 12/20/14 C.Ding changed permission 
-chmod 777 /app/vendor/proj/4.8.0/share/proj
+chmod 777 /app/vendor/proj/share/proj
 
 echo "variables set" | indent
 
