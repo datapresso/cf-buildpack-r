@@ -293,7 +293,7 @@ echo $VENDOR_DIR
 echo $BUILD_DIR
 echo `ls -al $VENDOR_DIR`
 echo "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-echo `ls -al /app/vendor/proj/4.8.0/share/proj | sort`
+echo `ls -al /app/vendor/proj/share/proj | sort`
 echo "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 rm -rf $VENDOR_DIR && mkdir -p $VENDOR_DIR
 cp -R /app/vendor/gcc-$GCC_VERSION $VENDOR_DIR/gcc-$GCC_VERSION
