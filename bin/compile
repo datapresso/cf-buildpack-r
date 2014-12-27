@@ -249,7 +249,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:/app/vendor/geos/lib:/app/vendor/gdal/lib:/app
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/geos/lib:/app/vendor/gdal/lib:/app/vendor/proj/lib
 
 # 12/20/14 C.Ding changed permission 
-chmod 777 /app/vendor/proj/share/proj
+####chmod 777 /app/vendor/proj/share/proj
 
 echo "variables set" | indent
 
