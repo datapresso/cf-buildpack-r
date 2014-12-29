@@ -231,8 +231,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 # R needs to know where gfortran and glibc header files are
 export PATH=$PATH:/app/vendor/R/bin:/app/vendor/gcc-$GCC_VERSION/bin
-##export LDFLAGS="-L/app/vendor/gcc-$GCC_VERSION/lib64/"
-##export CPPFLAGS="-I/app/vendor/glibc-$GLIBC_VERSION/string/ -I/app/vendor/glibc-$GLIBC_VERSION/time"
+export LDFLAGS="-L/app/vendor/gcc-$GCC_VERSION/lib64/"
+export CPPFLAGS="-I/app/vendor/glibc-$GLIBC_VERSION/string/ -I/app/vendor/glibc-$GLIBC_VERSION/time"
 export R_HOME=/app/vendor/R
 export R_INCLUDE=$R_HOME/lib64/R/include
 export LD_LIBRARY_PATH="/lib:/usr/lib:/usr/lib64:$R_HOME/lib64:$JAVA_HOME/lib/amd64:$JAVA_HOME/lib/amd64/server:$LD_LIBRARY_PATH"
