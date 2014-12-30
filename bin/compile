@@ -241,7 +241,7 @@ ln -s /usr/lib/libreadline.so $R_HOME/lib64/libreadline.so.5 2>&1
 
 ## 12/09/14 C.Ding forced to add env variables from another build pack- hack
 export GEOS_LIBRARY_PATH=/app/vendor/geos/lib
-export PROJ_LIB=/app/vendor/proj/share/proj
+export PROJ4_LIBRARY_PATH=/app/vendor/proj/share/proj
 export GDAL_DATA=/app/vendor/gdal/share/gdal
 export PATH=$BUILD_DIR/.profile.d:/app/vendor/geos/bin:/app/vendor/gdal/bin:/app/vendor/proj/bin:$PATH
 export CPPPATH=$CPPPATH:/app/vendor/geos/include:/app/vendor/gdal/include:/app/vendor/proj/include
