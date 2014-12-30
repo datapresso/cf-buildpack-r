@@ -235,7 +235,7 @@ export LDFLAGS="-L/app/vendor/gcc-$GCC_VERSION/lib64/"
 export CPPFLAGS="-I/app/vendor/glibc-$GLIBC_VERSION/string/ -I/app/vendor/glibc-$GLIBC_VERSION/time"
 export R_HOME=/app/vendor/R
 export R_INCLUDE=$R_HOME/lib64/R/include
-export LD_LIBRARY_PATH="/lib:/usr/lib:/usr/lib64:$R_HOME/lib64:$JAVA_HOME/lib/amd64:$JAVA_HOME/lib/amd64/server:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/lib:/usr/lib:$R_HOME/lib64:$JAVA_HOME/lib/amd64:$JAVA_HOME/lib/amd64/server:$LD_LIBRARY_PATH"
 ln -s /usr/lib/libreadline.so $R_HOME/lib64/libreadline.so.5 2>&1
 
 ## 12/09/14 C.Ding forced to add env variables from another build pack- hack
